@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    font-family: 'Droid Sans', sans-serif;
+}
+
+.top {
+    display: flex;
+    height: 42px;
+    border-style: solid;
+    border-width: 0px;
+    border-bottom-width: .5px;
+    padding: 7px;
+    margin: 0 auto;
+    font-size: 35px;
+    font-style: italic;
+
+}
+
+.container {
+    display: flex;
+    overflow: hidden;
+}
+
+.player,
+.search {
+    padding: 10px;
+    height: auto;
+    overflow: auto;
+}
+
+.player {
+    flex: 1;
+}
+
+.search { 
+    width: 300px;
+    border-style: solid;
+    border-width: 0;
+    border-left-width: .5px;
+}
