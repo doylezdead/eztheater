@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    font-family: 'Droid Sans', sans-serif;
+    background-color: #C2C4CC;
+    color: #535D7F;
+    height: 100%;
+}
+
+ol {
+    list-style-type: none;
+}
+select,
+input {
+    width: 240;
+    height: 25px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.topcontainer {
+    height: 40px;
+    width: 100%;
+    border-style: solid;
+    border-width: 0px;
+    border-bottom-width: 1px;
+    margin: 0 auto;
+}
+
+.title {
+    display: inline-block;
+    font-size: 35px;
+    font-style: italic;
+    float: left;
+}
+
+.type,
+.category,
+.search {
+    display: inline-block;
+    float: right;
+    width: 300px;
+    text-align: center;
+}
+
+
+.bottomcontainer {
+    overflow: hidden;
+    height: 85%;
+    width: 100%;
+}
+
+.player,
+.results {
+    text-align: center;
+    padding: 10px;
+    overflow: auto;
+}
+
+.player {
+    float: left;
+}
+
+.search { 
+    width: 300px;
+    border-style: solid;
+    border-width: 0;
+    border-left-width: .5px;
+}
