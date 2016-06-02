@@ -4,137 +4,52 @@
         <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
     </head>
     <body>
-    <div class="topcontainer">
-        <div class="title">
-            EZtheater 0.0.1
+        <script type="text/javascript" src="scripts/eztheater.js"></script>
+        <div class="topcontainer">
+            <div class="title">
+                EZtheater 0.0.1
+            </div>
+            <div class="search">
+                <br>
+                <input placeholder="Search" type="text"></input>
+            </div>
+            <div id="category_cont" class="category">
+                Category
+                <br>
+                <select>
+                    <option>Comedy</option>
+                </select>
+            </div>
+            <div id="season_cont" class="season">
+                Season
+                <br>
+                <select>
+                </select>
+            </div>
+            <div class="type">
+                Type
+                <br>
+                <select id="type" onchange="type_update()">
+                    <option>Movies</option>
+                    <option>Shows</option>
+                </select>
+            </div>
         </div>
-        <div class="search">
-            <input placeholder="Search" type="text"></input>
+        <div class="bottomcontainer">
+            <div class="player">
+                <video controls>
+                    <source id="moviesrc" src="movies/gg.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="results">
+                <ol id=medialist>
+                    <li>
+                        <div class="movieitem">
+                        </div>
+                    </li>
+                </ol>
+            </div>
         </div>
-        <div class="category">
-            <select><option>Comedy</option></select>
-        </div>
-        <div class="type">
-            <select><option>Movies</option></select>
-        </div>
-    </div>
-    <div class="bottomcontainer">
-        <div class="player">
-            <video controls>
-                <source src="movies/gg.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="results">
-            <ol>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-                <li><div class="movieitem">This is a movie</div></li>
-            </ol>
-        </div>
-    </div>
         
     </body>
 </html>
