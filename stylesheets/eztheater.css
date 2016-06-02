@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: 'Droid Sans', sans-serif;
@@ -14,14 +18,12 @@ ol {
 }
 select,
 input {
+    font-family: 'Droid Sans', sans-serif;
+    color: #535D7F;
     width: 94%;
     height: 32px;
     border-radius: 4px;
     padding-left: 10px;
-}
-
-* {
-    box-sizing: border-box;
 }
 
 .topcontainer {
