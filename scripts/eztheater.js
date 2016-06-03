@@ -5,14 +5,11 @@ $( document ).ready(function() {
 
 
 function populate_genres_seasons () {
-    
-    divs="";
+    console.log('Populating genres and seasons');
 
-    $.get( "scripts/fetchcolumn.php", {
-        type: "Movies" }
-    ).done(function(data){divs=data;});
+    $.get("scripts/fetchcolumn.php", { type: "Movies" }, function(data){$("#genre").html(data);});
     
-    $("#medialist").html(divs);
+    $.get("scripts/fetchcolumn.php", { type: "Shows" }, function(data){$("#season").html(data);});
 }
 
 function search_update () {
