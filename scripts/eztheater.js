@@ -1,31 +1,52 @@
+$( document ).ready(function() {
+    console.log('JQuery ready');
+    populate_genres_seasons();
+});
 
-function refresh () {
+
+function populate_genres_seasons () {
     
-}
+    divs="";
 
-function populate_categories () {
-
-}
-
-function populate_seasons () {
-
-}
-
-function update_selectionas () {
+    $.get( "scripts/fetchcolumn.php", {
+        type: "Movies" }
+    ).done(function(data){divs=data;});
     
+    $("#medialist").html(divs);
+}
+
+function search_update () {
+    //search fn here.
+}
+
+function full_update () {
+    
+    newType = $("#type").val();
+    var divs = "";
+
+    $.get( "scripts/fetchmedia.php", {
+        type: $("#type").val(),
+        genre: $("#genre").val(),
+        season: $("#season").val() }
+    ).done(function(data){divs=data;});
+    
+    $("#medialist").html(divs);
+
+    search_update();
 }
 
 function type_update () {
-    newType = document.getElementById("type").value;
+    newType = $("#type").val();
     
     if(newType=="Movies"){
-        document.getElementById("season_cont").style.display = "none";
-        document.getElementById("category_cont").style.display = "inline-block";
+        $("#genre_cont").css("display", "inline-block");
+        $("#season_cont").css("display", "none");
     }
     
     if(newType=="Shows"){
-        document.getElementById("category_cont").style.display = "none";
-        document.getElementById("season_cont").style.display = "inline-block";
+        $("#season_cont").css("display", "inline-block");
+        $("#genre_cont").css("display", "none");
     }
-
+    
+    full_update();
 }

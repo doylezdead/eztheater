@@ -1,4 +1,5 @@
 <?php
+    
     $server = 'localhost';
     $user = 'eztheater';
     $pass = 'eztheater';
@@ -8,9 +9,12 @@
     mysql_select_db($dbname);
     
     $query_type = $_GET["type"];
-    $query_genre = $_GET["genre"];
-    $query_season = $_GET["season"];
-    
 
-
+    if($query_type=="Movies"){
+        $query = "SELECT DISTINCT(genre) FROM Movies";
+        $results = mysql_fetch_array(mysql_query($query));
+        foreach($results as $row){
+            echo $row[0];
+        }
+    }
 ?>

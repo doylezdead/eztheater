@@ -47,7 +47,7 @@ input {
 }
 
 .type,
-.category,
+.genre,
 .search,
 .season {
     display: inline-block;

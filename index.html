@@ -4,26 +4,27 @@
         <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
     </head>
     <body>
+        <script type="text/javascript" src="scripts/jquery-2.2.4.min.js"></script>
         <script type="text/javascript" src="scripts/eztheater.js"></script>
         <div class="topcontainer">
             <div class="title">
-                EZtheater 0.0.1
+                EZtheater 0.0.2
             </div>
             <div class="search">
                 <br>
-                <input placeholder="Search" type="text"></input>
+                <input onchange="search_update()" placeholder="Search" type="text"></input>
             </div>
-            <div id="category_cont" class="category">
-                Category
+            <div id="genre_cont" class="genre">
+                Genre
                 <br>
-                <select>
+                <select id="genre">
                     <option>Comedy</option>
                 </select>
             </div>
             <div id="season_cont" class="season">
                 Season
                 <br>
-                <select>
+                <select id="season">
                 </select>
             </div>
             <div class="type">
