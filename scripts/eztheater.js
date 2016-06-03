@@ -1,6 +1,7 @@
 $( document ).ready(function() {
     console.log('JQuery ready');
     populate_genres_seasons();
+    full_update();
 });
 
 

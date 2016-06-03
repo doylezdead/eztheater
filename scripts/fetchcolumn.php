@@ -9,7 +9,7 @@
     $con = new mysqli($server, $user, $pass, $dbname);
     
     if (!$con) {
-        die('Not connected : ' . mysql_error());
+        die('Not connected');
     }
     
     $query_type = $_GET["type"];
