@@ -29,7 +29,7 @@
         else
             $query_where = "WHERE genre='$in_genre' ";
         
-        $query_order = $query_order."year"
+        $query_order = $query_order."year";
 
     }
     else if($in_type=="Shows"){
@@ -40,32 +40,43 @@
         else
             $query_where = "WHERE season='$in_season' ";
         
-        $query_order = $query_order."season, episode"
+        $query_order = $query_order."season, episode";
 
     }
 
-    query
+    $results = $con->query($query_select.$query_where.$query_order);
 
 
-    
-
-    if($query_type=="Movies"){
-        $query = "SELECT DISTINCT(genre) AS genre FROM Movies ORDER BY genre";
-        $results = $con->query($query);
+    if($in_type=="Movies"){
         foreach($results as $row){
-            if($row["genre"] == ""){continue;}
-            echo "<option>".$row["genre"]."</option>";
+            $returntext = sprintf('
+
+                <li>
+                    <div class="mediaitem">
+                        <div class="info_cont">
+                            <div class="mediatitle">
+                                %2$s
+                            </div>
+                            <div class="mediainfo">
+                                %6$s%5$s%4$s
+                            </div>
+                        </div>
+                        <div class="functions">
+                            <img src="resources/play.png" onclick="play_media("%3$s")"></img>
+                            <img src="resources/download.png" onclick="download_media("%3$s")"></img>
+                            <img src="resources/settings.png" onclick="settings_media("Movies",1)"></img>
+                        </div>
+                    </div>
+                </li>
+            
+            ', $row['id'], $row['name'], $row['path'], $row['genre'], $row['runtime']." ", $row['year']." ");
+            echo $returntext;
         }
     }
+//    else if($in_type=="Shows"){
+//        continue;
+//    }
 
-    if($query_type=="Shows"){
-        $query = "SELECT DISTINCT(season) AS season FROM Shows ORDER BY season";
-        $results = $con->query($query);
-        foreach($results as $row){
-            if($row["season"] == ""){continue;}
-            echo "<option>".$row["season"]."</option>";
-        }
-    }
 
     $con->close();
 ?>

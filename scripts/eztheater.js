@@ -1,16 +1,19 @@
 $( document ).ready(function() {
     console.log('JQuery ready');
     populate_genres_seasons();
-    full_update();
 });
 
 
 function populate_genres_seasons () {
     console.log('Populating genres and seasons');
 
-    $.get("scripts/fetchcolumn.php", { type: "Movies" }, function(data){$("#genre").html(data);});
+    var d1 = $.get("scripts/fetchcolumn.php", { type: "Movies" }, function(data){$("#genre").html(data);});
     
-    $.get("scripts/fetchcolumn.php", { type: "Shows" }, function(data){$("#season").html(data);});
+    var d2 = $.get("scripts/fetchcolumn.php", { type: "Shows" }, function(data){$("#season").html(data);});
+    
+    $.when(d1,d2).done(function() {
+        full_update();
+    });
 }
 
 function search_update () {
@@ -18,23 +21,19 @@ function search_update () {
 }
 
 function full_update () {
-    
-    newType = $("#type").val();
-    var divs = "";
+    console.log("Running a full update");
 
     $.get( "scripts/fetchmedia.php", {
-        type: $("#type").val(),
-        genre: $("#genre").val(),
-        season: $("#season").val() }
-    ).done(function(data){divs=data;});
-    
-    $("#medialist").html(divs);
+        type: $("#type option:selected").text(),
+        genre: $("#genre option:selected").text(),
+        season: $("#season options:selected").text() }
+    ).done(function(data){$("#medialist").html(data);});
 
     search_update();
 }
 
 function type_update () {
-    newType = $("#type").val();
+    newType = $("#type option:selected").text();
     
     if(newType=="Movies"){
         $("#genre_cont").css("display", "inline-block");

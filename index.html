@@ -8,7 +8,7 @@
         <script type="text/javascript" src="scripts/eztheater.js"></script>
         <div class="topcontainer">
             <div class="title">
-                EZtheater 0.0.2
+                EZtheater 0.0.3
             </div>
             <div class="search">
                 <br>
@@ -17,13 +17,13 @@
             <div id="genre_cont" class="genre">
                 Genre
                 <br>
-                <select id="genre">
+                <select id="genre" onchange="full_update()">
                 </select>
             </div>
             <div id="season_cont" class="season">
                 Season
                 <br>
-                <select id="season">
+                <select id="season" onchange="full_update()">
                 </select>
             </div>
             <div class="type">
@@ -44,7 +44,20 @@
             <div class="results">
                 <ol id=medialist>
                     <li>
-                        <div class="movieitem">
+                        <div class="mediaitem">
+                            <div class="info_cont">
+                                <div class="mediatitle">
+                                    The Great Gatsby
+                                </div>
+                                <div class="mediainfo">
+                                    2016 130m comedy
+                                </div>
+                            </div>
+                            <div class="functions">
+                                <img src="resources/play.png" onclick="play_media('movies/gg.mp4')"></img>
+                                <img src="resources/download.png" onclick="download_media('movies/gg.mp4')"></img>
+                                <img src="resources/settings.png" onclick="settings_media('Movies',1)"></img>
+                            </div>
                         </div>
                     </li>
                 </ol>
