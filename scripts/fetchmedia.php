@@ -58,7 +58,7 @@
                                 %2$s
                             </div>
                             <div class="mediainfo">
-                                %6$s %5$m s%4$s
+                                %6$s %5$sm %4$s
                             </div>
                         </div>
                         <div class="functions">
