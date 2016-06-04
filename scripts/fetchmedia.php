@@ -58,18 +58,61 @@
                                 %2$s
                             </div>
                             <div class="mediainfo">
-                                %6$s%5$s%4$s
+                                %6$s %5$m s%4$s
                             </div>
                         </div>
                         <div class="functions">
-                            <img src="resources/play.png" onclick="play_media("%3$s")"></img>
-                            <img src="resources/download.png" onclick="download_media("%3$s")"></img>
-                            <img src="resources/settings.png" onclick="settings_media("Movies",1)"></img>
+                            <img src="resources/play.png" onclick="play_media(\'%3$s\')"></img>
+                            <a  href="%3$s" download><img src="resources/download.png"></img></a>
+                            <img src="resources/settings.png" onclick="$(\'#media%1$s\').css(\'display\', \'inline-block\')"></img>
                         </div>
+                    </div>
+                    
+                    <div id="media%1$s" class="mediaedit" style="height: 310;">
+                        Name: <input id="media%1$sname" type="text" value="%2$s"></input><br>
+                        Genre: <input id="media%1$sgenre" type="text" value="%4$s"></input><br>
+                        Runtime: <input id="media%1$sruntime" type="text" value="%5$s"></input><br>
+                        Year: <input id="media%1$syear" type="text" value="%6$s"></input><br>
+                        <input type="button" onclick="submit_edit(\'Movies\',\'%1$s\'); $(\'#media%1$s\').css(\'display\', \'none\');" value="Submit"></input>
+                        <input type="button" onclick="$(\'#media%1$s\').css(\'display\', \'none\');" value="Cancel"></input>
+                    </div>
+
+                </li>
+            
+            ', $row['id'], $row['name'], $row['path'], $row['genre'], $row['runtime'], $row['year']);
+            echo $returntext;
+        }
+    }
+    else if($in_type=="Shows"){
+        foreach($results as $row){
+            $returntext = sprintf('
+
+                <li>
+                    <div class="mediaitem">
+                        <div class="info_cont">
+                            <div class="mediatitle">
+                                %2$s
+                            </div>
+                            <div class="mediainfo">
+                                S:%4$sE:%5$s
+                            </div>
+                        </div>
+                        <div class="functions">
+                            <img src="resources/play.png" onclick="play_media(\'%3$s\')"></img>
+                            <a  href="%3$s" download><img src="resources/download.png"></img></a>
+                            <img src="resources/settings.png" onclick="$(\'#media%1$s\').css(\'display\', \'inline-block\')"></img>
+                        </div>
+                    </div>
+                    <div id="media%1$s" class="mediaedit">
+                        Name: <input id="media%1$sname" type="text"></input><br>
+                        Season: <input id="media%1$sseason" type="text"></input><br>
+                        Episode: <input id="media%1$sepisode" type="text"></input><br>
+                        <input type="button" onclick="submit_edit(\'Shows\',\'media%1$s\'); $(\'#media%1$s\').css(\'display\', \'none\');"></input>
+                        <input type="button" onclick="$(\'#media%1$s\').css(\'display\', \'none\');" value="Cancel"></input>
                     </div>
                 </li>
             
-            ', $row['id'], $row['name'], $row['path'], $row['genre'], $row['runtime']." ", $row['year']." ");
+            ', $row['id'], $row['name'], $row['path'], $row['season']." ", $row['episode']);
             echo $returntext;
         }
     }

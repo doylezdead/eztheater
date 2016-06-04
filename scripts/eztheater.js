@@ -3,6 +3,41 @@ $( document ).ready(function() {
     populate_genres_seasons();
 });
 
+function play_media(source){
+    $("#mediasrc").src = source;
+    $("#vid")[0].load();
+    $("#vid")[0].play();
+}
+
+function submit_edit(type, id){
+    if(type=="Movies"){
+        var name = $("#media" + id + "name").val();
+        var genre = $("#media" + id + "genre").val();
+        var runtime = $("#media" + id + "runtime").val();
+        var year = $("#media" + id + "year").val();
+        
+        console.log("!! "+name+genre+runtime+year);
+
+        $.get("scripts/updatemovie.php", {
+            id: id,
+            name: name,
+            genre: genre,
+            runtime: runtime,
+            year: year}, function(data){});
+
+    }
+    else if(type=="Shows"){
+        var name = $("#media" + id + "name").val();
+        var season = $("#media" + id + "season").val();
+        var episode = $("#media" + id + "episode").val();
+
+        $.get("scripts/updateshow.php", {
+            id: id,
+            name: name,
+            season: season,
+            episode: episode}, function(data){});
+    }
+}
 
 function populate_genres_seasons () {
     console.log('Populating genres and seasons');
