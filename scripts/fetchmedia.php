@@ -45,10 +45,20 @@
     }
 
     $results = $con->query($query_select.$query_where.$query_order);
+    
+                            
 
 
     if($in_type=="Movies"){
         foreach($results as $row){
+            $playbutton = "";
+            
+            if(strchr($row['path'], '.mp4') || strchr($row['path'], '.mkv'))
+                $playbutton = '<img src="resources/play.png" onclick="play_media(\''.$row['path'].'\')"></img>';
+            else
+                $playbutton = '<img src="resources/noplay.png" style="cursor: default;"></img>';
+
+            
             $returntext = sprintf('
 
                 <li>
@@ -62,7 +72,7 @@
                             </div>
                         </div>
                         <div class="functions">
-                            <img src="resources/play.png" onclick="play_media(\'%3$s\')"></img>
+                            %7$s
                             <a  href="%3$s" download><img src="resources/download.png"></img></a>
                             <img src="resources/settings.png" onclick="$(\'#media%1$s\').css(\'display\', \'inline-block\')"></img>
                         </div>
@@ -79,7 +89,7 @@
 
                 </li>
             
-            ', $row['id'], $row['name'], $row['path'], $row['genre'], $row['runtime'], $row['year']);
+            ', $row['id'], $row['name'], $row['path'], $row['genre'], $row['runtime'], $row['year'], $playbutton);
             echo $returntext;
         }
     }
