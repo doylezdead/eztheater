@@ -4,7 +4,7 @@ $( document ).ready(function() {
 });
 
 function play_media(source){
-    $("#mediasrc").src = source;
+    $("#vid")[0].src = source;
     $("#vid")[0].load();
     $("#vid")[0].play();
 }
