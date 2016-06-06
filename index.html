@@ -4,8 +4,8 @@
         <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <script type="text/javascript" src="scripts/jquery-2.2.4.min.js"></script>
-        <script type="text/javascript" src="scripts/eztheater.js"></script>
+        <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+        <script type="text/javascript" src="js/eztheater.js"></script>
         <div class="topcontainer">
             <div class="title">
                 EZtheater 0.0.3
@@ -37,8 +37,11 @@
         </div>
         <div class="bottomcontainer">
             <div class="player">
+                <div id="tempmessage" class="tempmessage">
+                    Press play on a video to watch in the browser
+                </div>
                 <video id="vid" controls>
-                    <source id="moviesrc" src="" type="video/mp4">
+                    <source id="moviesrc" src="none.avi" type="video/mp4">
                 </video>
             </div>
             <div class="results">

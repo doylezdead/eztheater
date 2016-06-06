@@ -52,13 +52,16 @@
     if($in_type=="Movies"){
         foreach($results as $row){
             $playbutton = "";
+            $runtimeformat = $row['runtime']."m";
             
             if(strchr($row['path'], '.mp4') || strchr($row['path'], '.mkv'))
                 $playbutton = '<img src="resources/play.png" onclick="play_media(\''.$row['path'].'\')"></img>';
             else
                 $playbutton = '<img src="resources/noplay.png" style="cursor: default;"></img>';
 
-            
+            if($row['runtime']==0)
+                $runtimeformat = "";
+
             $returntext = sprintf('
 
                 <li>
@@ -68,7 +71,7 @@
                                 %2$s
                             </div>
                             <div class="mediainfo">
-                                %6$s %5$sm %4$s
+                                %6$s %8$s %4$s
                             </div>
                         </div>
                         <div class="functions">
@@ -89,7 +92,7 @@
 
                 </li>
             
-            ', $row['id'], $row['name'], $row['path'], $row['genre'], $row['runtime'], $row['year'], $playbutton);
+            ', $row['id'], $row['name'], $row['path'], $row['genre'], $row['runtime'], $row['year'], $playbutton, $runtimeformat);
             echo $returntext;
         }
     }

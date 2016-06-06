@@ -82,9 +82,14 @@ input {
 }
 
 video {
+    display: none;
     width: 100% !important;
     height: auto !important;
     border-radius: 7px;
+}
+
+.tempmessage {
+    display: inline-block;
 }
 
 .results {
@@ -129,6 +134,7 @@ li {
 }
 
 .info_cont {
+    overflow: hidden;
     position: relative;
     float: left;
     padding-top: 17px;
