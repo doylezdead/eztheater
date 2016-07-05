@@ -1,6 +1,8 @@
 $( document ).ready(function() {
     console.log('JQuery ready');
+    //$("#searchbox").keyup(search_update());
     populate_genres_seasons();
+
 });
 
 function play_media(source){
@@ -54,7 +56,15 @@ function populate_genres_seasons () {
 }
 
 function search_update () {
-    //search fn here.
+    var query = $("#searchbox").val();
+    var title = "";
+    $("li").each(function(){
+       title = $(this).find(".mediaitem .info_cont .mediatitle").text();
+       if(!(title.toLowerCase()).includes(query.toLowerCase()))
+           $(this).css("display", "none");
+       else
+           $(this).css("display", "block");
+    });
 }
 
 function full_update () {
