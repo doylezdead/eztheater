@@ -3,8 +3,13 @@
 filename=`echo "$1" | sed 's/\.[^.]*$//'`;
 filepath="/media/movies/$1";
 
-mysql -u eztheater -peztheater -e "INSERT INTO eztheater.Movies (name, path) VALUES('$filename', '$filepath');";
 
-mv "$1" "$2";
+mv "$1" "..$filepath" && 
+echo "move successful. adding to db..." &&
+mysql -u eztheater -peztheater -e "INSERT INTO eztheater.Movies (name, path) VALUES('$filename', '$filepath');" &&
+echo "add successful.";
+
+
+
 
 
