@@ -4,7 +4,3 @@ filename=`basename $1`;
 filepath="/media/movies/$filename";
 
 mysql -u eztheater -peztheater -e "DELETE FROM eztheater.Movies WHERE path='$filepath'";
-
-rm "$1";
-
-
