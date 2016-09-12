@@ -1,6 +1,4 @@
 #!/bin/bash
-cd ../media/movies
-
 for f in *;
 do
     filename=`echo "$f" | sed 's/\.[^.]*$//'`;
