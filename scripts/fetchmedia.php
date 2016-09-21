@@ -45,6 +45,8 @@
     }
 
     $results = $con->query($query_select.$query_where.$query_order);
+
+    // echo "<li>".$query_select.$query_where.$query_order."<br>".$in_season."</li>";
     
                             
 
@@ -120,7 +122,7 @@
                         Name: <input id="media%1$sname" type="text"></input><br>
                         Season: <input id="media%1$sseason" type="text"></input><br>
                         Episode: <input id="media%1$sepisode" type="text"></input><br>
-                        <input type="button" onclick="submit_edit(\'Shows\',\'media%1$s\'); $(\'#media%1$s\').css(\'display\', \'none\');"></input>
+                        <input type="button" onclick="submit_edit(\'Shows\',\'%1$s\'); $(\'#media%1$s\').css(\'display\', \'none\');" value="Submit"></input>
                         <input type="button" onclick="$(\'#media%1$s\').css(\'display\', \'none\');" value="Cancel"></input>
                     </div>
                 </li>

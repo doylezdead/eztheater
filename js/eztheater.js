@@ -27,7 +27,8 @@ function submit_edit(type, id){
             name: name,
             genre: genre,
             runtime: runtime,
-            year: year}, function(data){});
+            year: year
+        }, function(data){});
 
     }
     else if(type=="Shows"){
@@ -39,7 +40,8 @@ function submit_edit(type, id){
             id: id,
             name: name,
             season: season,
-            episode: episode}, function(data){});
+            episode: episode
+        }, function(data){});
     }
 }
 
@@ -73,7 +75,7 @@ function full_update () {
     $.get( "scripts/fetchmedia.php", {
         type: $("#type option:selected").text(),
         genre: $("#genre option:selected").text(),
-        season: $("#season options:selected").text() }
+        season: $("#season option:selected").text() }
     ).done(function(data){$("#medialist").html(data);});
 
     search_update();
