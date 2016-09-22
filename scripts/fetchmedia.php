@@ -56,7 +56,7 @@
             $playbutton = "";
             $runtimeformat = $row['runtime']."m";
             
-            if(strchr($row['path'], '.mp4') || strchr($row['path'], '.mkv'))
+            if(strchr($row['path'], '.mp4') || strchr($row['path'], '.mkv') || strchr($row['path'], '.m4v'))
                 $playbutton = '<img src="resources/play.png" onclick="play_media(\''.$row['path'].'\')"></img>';
             else
                 $playbutton = '<img src="resources/noplay.png" style="cursor: default;"></img>';
