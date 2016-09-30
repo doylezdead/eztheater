@@ -19,7 +19,7 @@
     //Start building the query
     $query_select = "SELECT * FROM $in_type ";
     $query_where = "";
-    $query_order = "ORDER BY name, ";
+    $query_order = "ORDER BY ";
 
     if($in_type=="Movies"){
         if($in_genre=="*all*")
@@ -29,7 +29,7 @@
         else
             $query_where = "WHERE genre='$in_genre' ";
         
-        $query_order = $query_order."year";
+        $query_order = $query_order."name, year";
 
     }
     else if($in_type=="Shows"){
@@ -40,7 +40,7 @@
         else
             $query_where = "WHERE season='$in_season' ";
         
-        $query_order = $query_order."season, episode";
+        $query_order = $query_order."season, episode, name";
 
     }
 
@@ -119,9 +119,9 @@
                         </div>
                     </div>
                     <div id="media%1$s" class="mediaedit">
-                        Name: <input id="media%1$sname" type="text"></input><br>
-                        Season: <input id="media%1$sseason" type="text"></input><br>
-                        Episode: <input id="media%1$sepisode" type="text"></input><br>
+                        Name: <input id="media%1$sname" type="text" value="%2$s"></input><br>
+                        Season: <input id="media%1$sseason" type="text" value="%4$s"></input><br>
+                        Episode: <input id="media%1$sepisode" type="text" value="%5$s"></input><br>
                         <input type="button" onclick="submit_edit(\'Shows\',\'%1$s\'); $(\'#media%1$s\').css(\'display\', \'none\');" value="Submit"></input>
                         <input type="button" onclick="$(\'#media%1$s\').css(\'display\', \'none\');" value="Cancel"></input>
                     </div>
