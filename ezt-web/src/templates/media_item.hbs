@@ -1,0 +1,27 @@
+<li>
+    <div class="mediaitem">
+        <div class="info_cont">
+            <div class="mediatitle">
+                %2$s
+            </div>
+            <div class="mediainfo">
+                %6$s %8$s %4$s
+            </div>
+        </div>
+        <div class="functions">
+            %7$s
+            <a  href="%3$s" download><img src="resources/download.png"></img></a>
+            <img src="resources/settings.png" onclick="$(\'#media%1$s\').css(\'display\', \'inline-block\')"></img>
+        </div>
+    </div>
+    
+    <div id="media%1$s" class="mediaedit" style="height: 310;">
+        Name: <input id="media{{id}}name" type="text" value="{{name}}"></input><br>
+        Genre: <input id="media{{id}}genre" type="text" value="{{genre}}"></input><br>
+        Runtime: <input id="media{{id}}runtime" type="text" value="{{runtime}}"></input><br>
+        Year: <input id="media{{year}}year" type="text" value="{{year}}"></input><br>
+        <input type="button" onclick="submit_edit(\'Movies\',\'%1$s\'); $(\'#media%1$s\').css(\'display\', \'none\');" value="Submit"></input>
+        <input type="button" onclick="$(\'#media%1$s\').css(\'display\', \'none\');" value="Cancel"></input>
+    </div>
+
+</li>
