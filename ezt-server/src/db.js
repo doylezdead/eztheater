@@ -34,7 +34,7 @@ function get_columns(type, callback){
 function get_media(type, column, callback){
     var column_name = "";
     var query_where = "";
-    var query_order = 'ORDER BY ';
+    var query_order = ' ORDER BY ';
     switch(type){
         case 'Movies':
             column_name = 'genre';
@@ -50,18 +50,14 @@ function get_media(type, column, callback){
         case '*all*':
             break;
         case '*none*':
-            query_where = ' WHERE '+column_name+' IS NULL ';
+            query_where = ' WHERE '+column_name+' IS NULL';
             break;
         default:
-            query_where = ' WHERE '+column_name+'="'+column+'" ';
+            query_where = ' WHERE '+column_name+'="'+column+'"';
     }
 
     var query_string = "SELECT * FROM "+type+query_where+query_order;
-    console.log(query_string);
     conn.query(query_string, function(err, results, fields){
-        console.log(err);
-        console.log(results);
-        console.log(fields);
         callback(results);
     });
     return null;

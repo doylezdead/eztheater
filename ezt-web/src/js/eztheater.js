@@ -1,6 +1,12 @@
+column_item = "";
+media_item = "";
+
+
 $( document ).ready(function() {
-    console.log('JQuery ready');
-    //$("#searchbox").keyup(search_update());
+    column_item = Handlebars.compile($('#column-template').html());
+    media_item = Handlebars.compile($('#media-template').html());
+    //console.log($('#column-template').html());
+    //console.log('JQuery ready');
     populate_genres_seasons();
 
 });
@@ -20,7 +26,7 @@ function submit_edit(type, id){
         var runtime = $("#media" + id + "runtime").val();
         var year = $("#media" + id + "year").val();
         
-        console.log("!! "+name+genre+runtime+year);
+        //console.log("!! "+name+genre+runtime+year);
 
         $.get("scripts/updatemovie.php", {
             id: id,
@@ -46,11 +52,10 @@ function submit_edit(type, id){
 }
 
 function populate_genres_seasons () {
-    console.log('Populating genres and seasons');
+    //console.log('Populating genres and seasons');
 
-    var d1 = $.get("scripts/fetchcolumn.php", { type: "Movies" }, function(data){$("#genre").html(data);});
-    
-    var d2 = $.get("scripts/fetchcolumn.php", { type: "Shows" }, function(data){$("#season").html(data);});
+    var d1 = $.get("api/columns", { type: "Movies" }, function(data){$("#genre").html(column_item({data:data}));});
+    var d2 = $.get("api/columns", { type: "Shows" }, function(data){$("#season").html(column_item({data:data}));});
     
     $.when(d1,d2).done(function() {
         full_update();
@@ -70,13 +75,37 @@ function search_update () {
 }
 
 function full_update () {
-    console.log("Running a full update");
+    //console.log("Running a full update");
+    var type = $("#type option:selected").text();
 
-    $.get( "scripts/fetchmedia.php", {
-        type: $("#type option:selected").text(),
-        genre: $("#genre option:selected").text(),
-        season: $("#season option:selected").text() }
-    ).done(function(data){$("#medialist").html(data);});
+    $.get( "api/media", {
+        type: type,
+        column: function(){
+                    if(type==='Movies'){
+                        return $("#genre option:selected").text();
+                    }
+                    if(type==='Shows'){
+                        return $("#season option:selected").text();
+                    }
+                }()
+    }).done(function(data){
+        var ret = {data:data}
+
+        for(i in ret.data){
+            if(ret.data[i].path.endsWith('mp4') || ret.data[i].path.endsWith('m4v') || ret.data[i].path.endsWith('mkv')){
+                ret.data[i].playable = true
+            }
+            if(type==='Movies'){
+                ret.data[i].is_movie = true
+            }
+            if(type==='Shows'){
+                ret.data[i].is_show = true
+            }
+        }
+        //console.log(ret);
+
+        $("#medialist").html(media_item(ret));
+    });
 
     search_update();
 }
