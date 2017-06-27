@@ -1,0 +1,18 @@
+#!/bin/bash
+prefix='/websrv/content/secure/static/media'
+filename=`echo $1 | rev | cut -d'/' -f1 | rev`
+
+jq ".movies |= .+ [{
+    \"name\":\"$filename\",
+    \"genre\":\"Unknown\",
+    \"year\":\"0\",
+    \"file\":\"$filename\",
+    \"subs\":\"$2\"
+}]" $prefix/index.json > $prefix/index2.json
+
+mv $prefix/index2.json $prefix/index.json
+mv $1 $prefix/movies/
+
+if [ ! -z $2 ]; then
+    mv $2 $prefix/movies/
+fi
