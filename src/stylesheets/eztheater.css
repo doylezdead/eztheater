@@ -1,177 +1,56 @@
+/*
+Theme colors
+  Background: #C9FAFF
+  Nav BG: #7D3FE8
+  Text: #2B1C02
+  Highlight: #FF1A22
+  Warn: #B9FF0D
+*/
+
 * {
     box-sizing: border-box;
+    color: #2B1C02;
 }
 
 body {
     margin: 0;
     font-family: 'Droid Sans', sans-serif;
-    background-color: #C2C4CC;
-    color: #535D7F;
+    background: url('https://subtlepatterns.com/patterns/ticks.png');
     height: 100%;
 }
 
-ol {
-    list-style-type: none;
-    padding: 10px;
-    margin: 0;
-
-}
-select,
 input {
-    background-color: #F3F5FF;
+    background-color: #EEEEEE;
+    color: #2B1C02;
     font-family: 'Droid Sans', sans-serif;
-    color: #535D7F;
-    width: 94%;
-    height: 32px;
-    border-radius: 4px;
+    font-size: 25px;
+    width: 30%;
+    height: 45px;
+    margin: 0px;
+    border-radius: 5px;
     padding-left: 10px;
-    margin-top: 5px;
-}
-
-.topcontainer {
-    height: 90px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 12px;
-    padding-right: 32px;
-}
-
-.controls { 
     float: right;
-    white-space: nowrap;
+}
+
+.navbar {
+    width: 100%;
+    height: 63px;
+    background-color: #7D3FE8;
+    padding: 9 10 0 9;
 }
 
 .title {
     display: inline-block;
-    padding-top: 10px;
     font-size: 40px;
     font-style: italic;
     float: left;
+    margin-left: 15px;
 }
 
-.type,
-.genre,
-.search,
-.season {
-    display: inline-block;
-    float: right;
-    width: 240px;
-    text-align: center;
-}
-
-.season {
-    /*Default is movies so we don't want to see seasons at first*/
-    display: none;
-}
-
-.bottomcontainer {
-    border-style: solid;
-    border-width: 0px;
-    border-top-width: 1px;
-    overflow: hidden;
-    height: calc(100% - 90px);
-    width: 100%;
-}
-
-.player,
-.results {
-    text-align: center;
-    overflow: auto;
-}
-
-.player {
-    width: calc(100% - 300px);
-    padding: 20px;
-    padding-top: 20px;
+.burger {
     float: left;
-}
-
-video {
-    display: none;
-    width: 100% !important;
-    height: auto !important;
-    border-radius: 7px;
-}
-
-.tempmessage {
-    display: inline-block;
-}
-
-.results {
-    padding: 10px;
-    float: right;
-    width: 300px;
-    height: 100%;
-    padding-left: 0 auto;
-    border-style: solid;
-    border-width: 0;
-    border-left-width: .5px;
-}
-
-li {
-    background-color: #F3F5FF;
-    
+    height: 45px;
+    width: 53px;
     margin: 0px;
-    margin-bottom: 10px;
-    
-    border-style: solid;
-    border-width: 2;
-    border-radius: 4px;
-    
-}
-
-.mediaitem {
-    width: 100%;
-    height: 110px;
-    padding: 2px;
-    padding-right: 0 auto;
-}
-
-.mediaedit {
-    display: none;
-    background-color: #F3F5FF;
-    width: 100%;
-    height: 250px;
-    margin: 0px;
-    margin-top: 15px;
-    padding: 2px;
-    padding-right: 0 auto;
-}
-
-.info_cont {
-    overflow: hidden;
-    position: relative;
-    float: left;
-    padding-top: 17px;
-    height: 100%;
-    width: calc(100% - 50px);
-}
-
-.mediatitle {
-    height: (100% - 27px);
-    text-align: center;
-}
-
-.mediainfo {
-    position: absolute;
-    bottom: 0;
-    padding-left: 7px;
-    height: 27px;
-    text-align: right;
-}
-
-.functions {
-    float: right;
-    width: 50px;
-    padding: 0 auto;
-}
-img {
-    /*border-box means no math here*/
     cursor: pointer;
-    background-color: #C2C4CC;
-    border-radius: 3px;
-    height: 30%;
-    margin-top: 3%;
-    margin-bottom: 3%;
 }
-

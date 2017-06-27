@@ -1,107 +1,21 @@
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="stylesheets/eztheater.css"/ >
-        <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
-    </head>
-    <body>
-        <script type="text/x-handlebars-template" id="media-template">
-            {{#each data}}
-                <li>
-                    <div class="mediaitem">
-                        <div class="info_cont">
-                            <div class="mediatitle">
-                                {{name}}
-                            </div>
-                            <div class="mediainfo">
-                            {{#if is_movie}}{{year}} {{genre}}{{/if}}
-                            {{#if is_show}}S:{{season}} E:{{episode}}{{/if}}
-                            </div>
-                        </div>
-                        <div class="functions">
-                        {{#if playable}}
-                            <img src="resources/play.png" onclick="play_media('{{path}}')"></img>
-                        {{else}}
-                            <img src="resources/noplay.png" style="cursor: default;"></img>
-                        {{/if}}
-                            <a  href="{{path}}" download><img src="resources/download.png"></img></a>
-                            <img src="resources/settings.png" onclick="$('#media{{id}}').css('display', 'inline-block')"></img>
-                        </div>
-                    </div>
-                    
-                    <div id="media{{id}}" class="mediaedit" style="height: 310;">
-                        Name: <input id="media{{id}}name" type="text" value="{{name}}"></input><br>
-                        {{#if is_show}}
-                            Season: <input id="media{{id}}season" type="text" value="{{season}}"></input><br>
-                            Episode: <input id="media{{id}}episode" type="text" value="{{episode}}"></input><br>
-                            <input type="button" onclick="submit_edit('Shows','{{id}}'); $('#media{{id}}').css('display', 'none');" value="Submit"></input>
-                        {{/if}}
-                        {{#if is_movie}}
-                            Genre: <input id="media{{id}}genre" type="text" value="{{genre}}"></input><br>
-                            Runtime: <input id="media{{id}}runtime" type="text" value="{{runtime}}"></input><br>
-                            Year: <input id="media{{id}}year" type="text" value="{{year}}"></input><br>
-                            <input type="button" onclick="submit_edit('Movies','{{id}}'); $('#media{{id}}').css('display', 'none');" value="Submit"></input>
-                        {{/if}}
-                        <input type="button" onclick="$('#media{{id}}').css('display', 'none');" value="Cancel"></input>
-                    </div>
-                
-                </li>
-            {{/each}}
-        </script>
-        <script type="text/x-handlebars-template" id="column-template">
-            <option>*all*</option>
-            <option>*none*</option>
-            {{#each data}}
-                <option>{{this}}</option>
-            {{/each}}
-        </script>
-        <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
-        <script type="text/javascript" src="js/handlebars-v4.0.5.js"></script>
-        <script type="text/javascript" src="js/eztheater.js"></script>
-        <div class="topcontainer">
-            <div class="title">
-                EZtheater 0.2.0
-            </div>
-            <div class="controls">
-                <div class="search">
-                    <br>
-                    <input id="searchbox" onkeyup="search_update()" placeholder="Search" type="text"></input>
-                </div>
-                <div id="genre_cont" class="genre">
-                    Genre
-                    <br>
-                    <select id="genre" onchange="full_update()">
-                    </select>
-                </div>
-                <div id="season_cont" class="season">
-                    Season
-                    <br>
-                    <select id="season" onchange="full_update()">
-                    </select>
-                </div>
-                <div class="type">
-                    Type
-                    <br>
-                    <select id="type" onchange="type_update()">
-                        <option>Movies</option>
-                        <option>Shows</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="bottomcontainer">
-            <div class="player">
-                <div id="tempmessage" class="tempmessage">
-                    Press play on a video to watch in the browser
-                </div>
-                <video id="vid" controls>
-                    <source id="moviesrc" src="none.avi" type="video/mp4">
-                </video>
-            </div>
-            <div class="results">
-                <ol id="medialist">
-                </ol>
-            </div>
-        </div>
-        
-    </body>
+  <head>
+    <link rel="stylesheet" type="text/css" href="stylesheets/eztheater.css"/ >
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="js/handlebars-v4.0.5.js"></script>
+    <script type="text/javascript" src="js/eztheater.js"></script>
+    <div class="navbar">
+      <img src="sprite/burger.png" class="burger"></img>
+      <div class="title">
+        EZtheater 0.3.0-rc1
+      </div>
+      <input id="searchbox" onkeyup="search_update()" placeholder="Search" type="text"></input>
+    </div>
+    <div class="container">
+    test test
+    </div>
+  </body>
 </html>
