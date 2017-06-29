@@ -1,0 +1,93 @@
+/* Theme colors */
+$c-bg: #C8C8C8;
+$c-alt: #7D3FE8;
+$c-text: #2B1C02;
+$c-hl: #FF1A22;
+$c-warn: #B9FF0D;
+
+/* BW colors */
+$c-white: #EAEAEA;
+$c-black: #181818;
+
+/* Sizing */
+$s-nav: 63px;
+$s-nav-item: $s-nav * 0.69;
+$s-rail: 250px;
+$s-rail-shift: $s-rail * -1;
+$s-nav-pad-lr: $s-nav * 0.35;
+$s-nav-pad-tb: $s-nav * 0.14;
+
+/* Font Values */
+$f-s4: 40px;
+$f-s3: 25px;
+
+/* MISC */
+$trans-speed: .35s;
+
+
+* {
+    box-sizing: border-box;
+    color: $c-text;
+}
+
+body {
+    margin: 0;
+    font-family: 'Droid Sans', sans-serif;
+    background: url('https://subtlepatterns.com/patterns/ticks.png');
+    height: 100%;
+}
+
+input {
+    background-color: $c-white;
+    color: $c-text;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: $f-s3;
+    width: 30%;
+    height: $s-nav-item;
+    margin: 0px;
+    border: hidden;
+    border-radius: 3px;
+    padding-left: 10px;
+    float: right;
+}
+
+.navbar {
+    width: 100%;
+    height: $s-nav;
+    background-color: $c-alt;
+    padding: $s-nav-pad-tb $s-nav-pad-lr;
+}
+
+.rail {
+    width: $s-rail;
+    height: calc(100% - #{$s-nav});
+    background: $c-bg;
+    float: left;
+    
+    overflow: auto;
+    position: relative;
+    left: $s-rail-shift;
+    transition: left $trans-speed;
+}
+
+.title {
+    display: inline-block;
+    font-size: $f-s4;
+    font-style: italic;
+    float: left;
+    margin-left: 15px;
+}
+
+.burger {
+    float: left;
+    height: $s-nav-item;
+    width: calc(#{$s-nav-item} + 13);
+    margin: 0px;
+    cursor: pointer;
+    opacity: .5;
+    transition: opacity $trans-speed;
+}
+.burger:hover {
+    opacity: 1;
+    transition: opacity $trans-speed;
+}
