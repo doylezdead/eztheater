@@ -1,6 +1,7 @@
 /* Theme colors */
 $c-bg: #C8C8C8;
 $c-alt: #7D3FE8;
+$c-alt-t: rgba(125,63,232,0.4);
 $c-text: #2B1C02;
 $c-hl: #FF1A22;
 $c-warn: #B9FF0D;
@@ -12,27 +13,37 @@ $c-black: #181818;
 /* Sizing */
 $s-nav: 63px;
 $s-nav-item: $s-nav * 0.69;
-$s-rail: 250px;
+
+$s-rail: 280px;
 $s-rail-shift: $s-rail * -1;
+$s-filter: 37px;
+$s-rail-item: 55px;
+$s-rail-margin: 2px;
+$s-rail-top: (4*$s-rail-margin)+(2*$s-filter);
+
 $s-nav-pad-lr: $s-nav * 0.35;
 $s-nav-pad-tb: $s-nav * 0.14;
 
 /* Font Values */
 $f-s4: 40px;
-$f-s3: 25px;
+$f-s3: 30px;
+$f-s2: 25px;
+$f-s1: 20px;
 
 /* MISC */
 $trans-speed: .35s;
 
 
 * {
+    font-family: Helvetica Neue,Helvetica,Arial sans-serif;
     box-sizing: border-box;
     color: $c-text;
+    
+    border: none; //Borders are dumb
 }
 
 body {
     margin: 0;
-    font-family: 'Droid Sans', sans-serif;
     background: url('https://subtlepatterns.com/patterns/ticks.png');
     height: 100%;
 }
@@ -40,8 +51,7 @@ body {
 input {
     background-color: $c-white;
     color: $c-text;
-    font-family: 'Droid Sans', sans-serif;
-    font-size: $f-s3;
+    font-size: $f-s2;
     width: 30%;
     height: $s-nav-item;
     margin: 0px;
@@ -64,10 +74,48 @@ input {
     background: $c-bg;
     float: left;
     
-    overflow: auto;
     position: relative;
     left: $s-rail-shift;
     transition: left $trans-speed;
+
+    padding: 2px 3px;
+}
+
+.rail-top {
+    width: 100%;
+    height: $s-rail-top;
+}
+
+.rail-bottom {
+    width: 100%;
+    height: calc(100% - #{$s-rail-top});
+    overflow: auto;
+}
+
+select {
+    //Rebuild the select to match theme
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.rail-item {
+    width: calc(#{$s-rail} - 22px);
+    height: $s-rail-item;
+    font-size: $f-s1;
+    margin: $s-rail-margin 0px;
+    padding: 0px 10px;
+
+    cursor: pointer;
+    
+    background: $c-white;
+}
+
+.filter {
+    font-size: $f-s3;
+    width: 100%;
+    height: $s-filter;
+    margin: 1px 0px;
+    background: $c-alt;
 }
 
 .title {
