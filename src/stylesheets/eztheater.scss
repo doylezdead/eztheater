@@ -1,13 +1,16 @@
-/* Theme colors */
-$c-bg: #C8C8C8;
-$c-alt: #7D3FE8;
-$c-alt-t: rgba(125,63,232,0.4);
-$c-text: #2B1C02;
-$c-hl: #FF1A22;
-$c-warn: #B9FF0D;
+/* Theme colors https://color.adobe.com/create/color-wheel/?base=2&rule=Analogous&selected=3&name=My%20Color%20Theme&mode=rgb&rgbvalues=0.5327464722882752,1,0.376018799984565,0.545022303200356,0.9998039215686274,0.8345734487422581,0.35294117647058826,0.6627450980392157,0.9098039215686274,0.5058823529411764,0.47843137254901963,0.596078431372549,0.5058823529411764,0.2057189274563033,0.48209005638303065&swatchOrder=0,1,2,3,4 */
 
-/* BW colors */
-$c-white: #EAEAEA;
+$c-warn: #FFEF41;
+$c-hl: #8BFFD5;
+$c-bg: #817a98;
+$c-nav: #5AA9E8;
+$c-nav-t: rgba(125,63,232,0.4);
+$c-dark: #81347B;
+
+/* BW + neutral colors */
+$c-text: #2B1C02;
+$c-white: #EAEAEA; 
+$c-grey: #a2a2a2;
 $c-black: #181818;
 
 /* Sizing */
@@ -16,7 +19,7 @@ $s-nav-item: $s-nav * 0.69;
 
 $s-rail: 280px;
 $s-rail-shift: $s-rail * -1;
-$s-filter: 37px;
+$s-filter: 40px;
 $s-rail-item: 55px;
 $s-rail-margin: 2px;
 $s-rail-top: (4*$s-rail-margin)+(2*$s-filter);
@@ -38,7 +41,7 @@ $trans-speed: .35s;
     font-family: Helvetica Neue,Helvetica,Arial sans-serif;
     box-sizing: border-box;
     color: $c-text;
-    
+
     border: none; //Borders are dumb
 }
 
@@ -58,7 +61,8 @@ $trans-speed: .35s;
 
 body {
     margin: 0;
-    background: url('https://subtlepatterns.com/patterns/ticks.png');
+    // background: url('https://subtlepatterns.com/patterns/ticks.png');
+    background-color: $c-bg;
     height: 100%;
 }
 
@@ -78,16 +82,16 @@ input {
 .navbar {
     width: 100%;
     height: $s-nav;
-    background-color: $c-alt;
+    background-color: $c-nav;
     padding: $s-nav-pad-tb $s-nav-pad-lr;
 }
 
 .rail {
     width: $s-rail;
     height: calc(100% - #{$s-nav});
-    background: $c-bg;
+    background: $c-grey;
     float: left;
-    
+
     position: relative;
     left: $s-rail-shift;
     transition: left $trans-speed;
@@ -108,19 +112,21 @@ input {
 
 select {
     //Rebuild the select to match theme
-    -webkit-appearance: none;
-    -moz-appearance: none;
+ //   -webkit-appearance: none;
+   // -moz-appearance: none;
 }
 
 .rail-item {
     width: calc(#{$s-rail} - 22px);
+    width: 100%;
     height: $s-rail-item;
     font-size: $f-s1;
     margin: $s-rail-margin 0px;
-    padding: 0px 10px;
+    padding: 10px 10px;
+    border-radius: 3px;
 
     cursor: pointer;
-    
+
     background: $c-white;
 }
 
@@ -129,7 +135,9 @@ select {
     width: 100%;
     height: $s-filter;
     margin: 1px 0px;
-    background: $c-alt;
+    background: $c-dark;
+    color: $c-white;
+    padding: 0 10px;
 }
 
 .title {
