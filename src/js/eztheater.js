@@ -1,6 +1,7 @@
 RAIL_SHIFT = '0px';
 
 $( document ).ready(function() {
+   $('#load_overlay').remove()
    // column_item = Handlebars.compile($.get('templates/column'));
    RAIL_SHIFT = "-" + $('.rail').css('width');
    $('#searchbox').focus();
