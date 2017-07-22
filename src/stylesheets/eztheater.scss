@@ -116,6 +116,13 @@ select {
    // -moz-appearance: none;
 }
 
+video {
+    max-width: calc(98% - #{$s-rail});
+    height: calc(90% - #{$s-nav});
+    margin: 1%;
+}
+    
+
 .rail-item {
     width: calc(#{$s-rail} - 22px);
     width: 100%;

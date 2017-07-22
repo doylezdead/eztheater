@@ -63,6 +63,11 @@ input {
   height: calc(100% - 88px);
   overflow: auto; }
 
+video {
+  max-width: calc(98% - 280px);
+  height: calc(90% - 63px);
+  margin: 1%; }
+
 .rail-item {
   width: calc(280px - 22px);
   width: 100%;
@@ -102,3 +107,5 @@ input {
 .burger:hover {
   opacity: 1;
   transition: opacity 0.35s; }
+
+/*# sourceMappingURL=eztheater.css.map */
