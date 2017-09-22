@@ -2,110 +2,79 @@
 /* BW + neutral colors */
 /* Sizing */
 /* Font Values */
-/* MISC */
 * {
   font-family: Helvetica Neue,Helvetica,Arial sans-serif;
   box-sizing: border-box;
   color: #2B1C02;
   border: none; }
 
-#load_overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #181818;
-  text-align: center;
-  z-index: 100;
-  color: #EAEAEA;
-  padding: 25%; }
-
 body {
   margin: 0;
   background-color: #817a98;
   height: 100%; }
 
-input {
-  background-color: #EAEAEA;
-  color: #2B1C02;
-  font-size: 25px;
-  width: 30%;
-  height: 43.47px;
-  margin: 0px;
-  border: hidden;
-  border-radius: 3px;
-  padding-left: 10px;
-  float: right; }
-
-.navbar {
+.bar {
   width: 100%;
-  height: 63px;
-  background-color: #5AA9E8;
   padding: 8.82px 22.05px; }
 
-.rail {
-  width: 280px;
-  height: calc(100% - 63px);
-  background: #a2a2a2;
-  float: left;
-  position: relative;
-  left: -280px;
-  transition: left 0.35s;
-  padding: 2px 3px; }
+.navbar {
+  height: 63px;
+  background-color: #EAEAEA; }
 
-.rail-top {
-  width: 100%;
-  height: 88px; }
+.facetbar {
+  height: 63px;
+  background-color: #a2a2a2; }
 
-.rail-bottom {
-  width: 100%;
-  height: calc(100% - 88px);
-  overflow: auto; }
-
-video {
-  max-width: calc(98% - 280px);
-  height: calc(90% - 63px);
-  margin: 1%; }
-
-.rail-item {
-  width: calc(280px - 22px);
-  width: 100%;
-  height: 55px;
-  font-size: 20px;
-  margin: 2px 0px;
-  padding: 10px 10px;
-  border-radius: 3px;
-  cursor: pointer;
-  background: #EAEAEA; }
-
-.filter {
+.nav-item {
+  color: #2B1C02;
   font-size: 30px;
-  width: 100%;
-  height: 40px;
-  margin: 1px 0px;
-  background: #81347B;
-  color: #EAEAEA;
-  padding: 0 10px; }
+  width: 30%;
+  height: 43.47px;
+  margin: 0 12px; }
+
+.facet {
+  color: #2B1C02;
+  font-size: 30px;
+  width: 220px;
+  height: 43.47px;
+  margin: 0 12px; }
+
+.left {
+  float: left;
+  text-align: left; }
+
+.right {
+  float: right;
+  text-align: right; }
+
+.year {
+  width: 80px; }
 
 .title {
   display: inline-block;
   font-size: 40px;
-  font-style: italic;
   float: left;
   margin-left: 15px; }
 
-.burger {
-  float: left;
-  height: 43.47px;
-  width: calc(43.47px + 13);
-  margin: 0px;
-  cursor: pointer;
-  opacity: .5;
-  transition: opacity 0.35s; }
+.stats {
+  font-size: 20px; }
 
-.burger:hover {
-  opacity: 1;
-  transition: opacity 0.35s; }
+input {
+  background-color: #EAEAEA;
+  font-size: 25px;
+  border: hidden;
+  border-radius: 3px;
+  padding-left: 10px;
+  text-align: left;
+  height: 100%; }
+
+select {
+  background-color: #EAEAEA;
+  font-size: 25px;
+  border: hidden;
+  border-radius: 3px;
+  padding-left: 10px;
+  text-align: left;
+  height: 100%; }
 
 /*# sourceMappingURL=eztheater.css.map */

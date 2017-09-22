@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css' />
+    <!-- <link href="stylesheets/eztheater.css" rel="stylesheet" type="text/css" /> -->
+  </head>
+  <script id="episode-template" type="text/x-handlebars-template">
+    <span class="result">
+      <h3><a style="cursor: hand;" onclick="expand_result(this);">Episode {{episode}}</a></h3>
+      <div style="display: none;">
+        <ul>
+          <li><a href="/secure/static/media/shows/{{show}}/{{path}}/{{file}}">Play</a></li>
+          <li><a href="/secure/static/media/shows/{{show}}/{{path}}/{{file}}" download>Download</a></li>
+        </ul>
+      </div>
+    </span>
+  </script>
+  <script id="season-template" type="text/x-handlebars-template">
+    <span class="result">
+      <h3><a style="cursor: hand;" onclick="expand_result(this);">Season {{season}}</a></h3>
+      <div style="display: none;">
+        <ul>
+        </ul>
+      </div>
+    </span>
+  </script>
+  <script id="show-template" type="text/x-handlebars-template">
+    <span class="result">
+      <h3><a style="cursor: hand;" onclick="expand_result(this);">{{name}}</a></h3>
+      <div style="display: none;">
+        <ul>
+        </ul>
+      </div>
+    </span>
+  </script>
+  <body style="font-family: sans-seriff;">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/handlebarsjs/4.0.8/handlebars.min.js"></script>
+    <script type="text/javascript" src="js/eztheater-shows.js"></script>
+    <div id="navbar" class="navbar">
+      <span>
+        EZtheater 0.4.0-rc1
+      </span>
+      <span>
+        Shows
+      </span>
+    </div>
+    <div id="facetbar" class="facetbar">
+      <span>
+        <input id="searchbox" onkeyup="search_update()" placeholder="Search" type="text"></input>
+      </span>
+    </div>
+    <div id="container">
+      
+    </div>
+  </body>
+</html>
