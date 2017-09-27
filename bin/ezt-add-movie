@@ -1,11 +1,18 @@
 #!/bin/bash
 prefix='/websrv/content/secure/static/media'
 filename=`echo $1 | rev | cut -d'/' -f1 | rev`
+echo "Name: "
+read name
+echo "Genre: "
+read genre
+echo "Year:"
+read year
+
 
 jq ".movies |= .+ [{
-    \"name\":\"$filename\",
-    \"genre\":\"Unknown\",
-    \"year\":\"0\",
+    \"name\":\"$name\",
+    \"genre\":\"$genre\",
+    \"year\": \"$year\",
     \"file\":\"$filename\",
     \"subs\":\"$2\"
 }]" $prefix/index.json > $prefix/index2.json

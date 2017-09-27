@@ -1,6 +1,6 @@
 var MEDIA_DIR = '/secure/static/media';
 var main_index = {};
-var results_template = Handlebars.compile($('#results-template').html());
+var results_template = Handlebars.compile($('#result-template').html());
 
 $( document ).ready(function() {
   $.getJSON(`${MEDIA_DIR}/index.json`, function(res){
@@ -12,12 +12,15 @@ $( document ).ready(function() {
 });
 
 function populate_genres(){
-  var genres = [];
+  var genres = []; 
+  var genres_dom = $('#genres');
   for(var i in main_index.movies){
     let movie = main_index.movies[i];
     if((genres.indexOf(movie.genre)) < 0){
       genres.push(movie.genre);
+      genres_dom.append(`<option>${movie.genre}</option>`);
     }
+  }
 }
 
 function populate_results(){
@@ -30,9 +33,9 @@ function populate_results(){
   for(var i in main_index.movies){
     let movie = main_index.movies[i];
     if((movie.name.toLowerCase().indexOf(string_filter.toLowerCase())) >= 0 &&
-        movie.genre == genres &&
-        movie.year >= year_low &&
-        movie.year <= year_high){
+       (movie.genre == genres || genres == "All Genres") &&
+       movie.year >= year_low &&
+       movie.year <= year_high){
       container.append(results_template(movie));
     }
   }
