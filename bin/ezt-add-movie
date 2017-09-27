@@ -1,11 +1,11 @@
 #!/bin/bash
 prefix='/websrv/content/secure/static/media'
 filename=`echo $1 | rev | cut -d'/' -f1 | rev`
-echo "Name: "
+echo -n "Name: "
 read name
-echo "Genre: "
+echo -n "Genre: "
 read genre
-echo "Year:"
+echo -n "Year:"
 read year
 
 
